@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+
+  --color-primary: #1677e8;
+  --color-primary-dark: #0b3b73;
+  --color-navy: #101828;
+  --color-text: #111827;
+  --color-text-muted: #667085;
+  --color-bg-light: #f8fafc;
+  --color-white: #ffffff;
+  --color-soft-blue: #eaf4ff;
+  --color-border: #e5e7eb;
+  --color-rating: #f5b700;
+  --color-footer: #062b55;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--color-primary);
+  --color-brand-dark: var(--color-primary-dark);
+  --color-navy: var(--color-navy);
+  --color-muted: var(--color-text-muted);
+  --color-bg-light: var(--color-bg-light);
+  --color-soft-blue: var(--color-soft-blue);
+  --color-rating: var(--color-rating);
+  --color-footer: var(--color-footer);
+  --font-sans: var(--font-jakarta);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jakarta), "Inter", Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.container-page {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 640px) {
+  .container-page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Subtle reveal-on-scroll utility, applied via IntersectionObserver in Reveal.js */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+.animate-float-soft-delayed {
+  animation: float-soft 5.5s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
